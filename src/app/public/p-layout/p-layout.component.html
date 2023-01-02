@@ -1,0 +1,87 @@
+<!-- ========================= hero-section-wrapper-2 start ========================= -->
+
+<!-- ========================= header-2 start ========================= -->
+<section  class="hero-section-wrapper-2">
+  <header class="header header-2">
+    <div class="navbar-area">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/img/LogoUcacIcamjpg.jpg" alt="Logo" />
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
+                <ul id="nav2" class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a [routerLink]="['home']" [routerLinkActive]="['active']" class="page-scroll" href="index.html">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="page-scroll"  [routerLink]="['register']" href="inscription.html">Inscription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="page-scroll" [routerLink]="['register']"  href="resultat.html">Résultats</a>
+                  </li>
+                  <a href="login.html" [routerLink]="['login']"  class="button button-sm radius-10 d-none d-lg-flex">Connexion</a>
+                </ul>
+
+              </div>
+              <!-- navbar collapse -->
+            </nav>
+            <!-- navbar -->
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!-- navbar area -->
+  </header>
+</section>
+<!-- ========================= header-2 end ========================= -->
+<router-outlet></router-outlet>
+
+<!-- ========================= footer style-1 start ========================= -->
+<footer class="footer footer-style-1">
+  <div class="container">
+    <div class="widget-wrapper">
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="footer-widget wow fadeInUp" data-wow-delay=".2s">
+            <div class="logo">
+              <a href="#0"> <img src="assets/img/LogoUcacIcamjpg.jpg" width="180" height="49" alt=""> </a>
+            </div>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis nulla placerat amet amet congue.</p>
+            <ul class="socials">
+              <li> <a href="#0"> <i class="lni lni-facebook-filled"></i> </a> </li>
+              <li> <a href="#0"> <i class="lni lni-twitter-filled"></i> </a> </li>
+              <li> <a href="#0"> <i class="lni lni-instagram-filled"></i> </a> </li>
+              <li> <a href="#0"> <i class="lni lni-linkedin-original"></i> </a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xl-2 offset-xl-1 col-lg-2 col-md-6 col-sm-6">
+          <div class="footer-widget wow fadeInUp" data-wow-delay=".3s">
+            <h6>Accès rapide</h6>
+            <ul class="links">
+              <li> <a href="index.html">Accueil</a> </li>
+              <li> <a href="inscription.html">Inscription</a> </li>
+              <li> <a href="#0">Résultat</a> </li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="copyright-wrapper wow fadeInUp" data-wow-delay=".2s">
+      <p>Design and Developed by <a href="https://uideck.com" rel="nofollow" target="_blank">UIdeck</a> Built-with <a href="#">Lindy UI Kit</a></p>
+    </div>
+  </div>
+</footer>

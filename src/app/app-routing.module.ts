@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AccueilComponent } from './accueil/accueil.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path : "home", component : AccueilComponent }
-      
+      {path: '', loadChildren:() => import('./public/public.module').then(m =>m.PublicModule)},
+      {path: 'auth', loadChildren:() =>import('./authentication/authentication.module').then(m => m.AuthenticationModule)},
+      {path : 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+
 ];
 
 @NgModule({
