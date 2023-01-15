@@ -6,33 +6,37 @@
         <div class="contact-form-wrapper text-center">
           <img src="assets/img/person.svg" width="100px" height="100px">
           <h4 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">S'inscrire</h4>
-          <form action="login.html" method="POST">
+          <form
+            name="form"
+            #f="ngForm"
+            (ngSubmit)="f.form.valid && onSubmit()"
+          >
             <div class="row">
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="nom" name="nom" class="form-input col-12" placeholder="Noms">
+                  <input type="text" id="name" name="name"  [(ngModel)]="form.name" #name="ngModel" class="form-input col-12" placeholder="Noms">
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="prenom" name="prenom" class="form-input col-12" placeholder="Prenom">
+                  <input type="text" id="prenom" name="prenom"  [(ngModel)]="form.prenom" #prenom="ngModel" class="form-input col-12" placeholder="Prenom">
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="telephone" name="telephone" class="form-input col-12" placeholder="Telephone">
+                  <input type="text" id="telephone" name="telephone"   [(ngModel)]="form.telephone" #telephone="ngModel" class="form-input col-12" placeholder="Telephone">
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="email" name="email" class="form-input col-12" placeholder="Email">
+                  <input type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email">
 
                 </div>
               </div>
@@ -40,7 +44,7 @@
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input type="password" id="password" name="password" class="form-input col-12" placeholder="Mot de passe">
+                  <input type="password" id="password" name="password"  [(ngModel)]="form.password" #password="ngModel" class="form-input col-12" placeholder="Mot de passe">
 
                 </div>
               </div>

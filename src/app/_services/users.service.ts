@@ -11,8 +11,10 @@ import {IUtilisateurResponseModel} from "../_interfaces/utilisateur-response-mod
 })
 export class UsersService {
 
-  private  url_all_users:string = 'http://192.168.254.68:8081/api/comptes';
-  private  url_user_by_email : string = 'http://192.168.254.68:8081/api/byemail/';
+  private  url_all_users:string = 'http://10.237.56.46:8081/api/comptes';
+  private  url_user_by_email : string = 'http://10.237.56.46:8081/api/byemail/';
+  //private  url_all_users:string = 'http://192.168.254.68:8081/api/comptes';
+  //private  url_user_by_email : string = 'http://192.168.254.68:8081/api/byemail/';
 
   constructor(private  http: HttpClient) { }
 
