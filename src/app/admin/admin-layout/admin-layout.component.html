@@ -1,1 +1,11 @@
 <p>admin-layout works!</p>
+
+<div class="container border-1">
+  <div>
+    <button (click)="logout()"  > Logout</button>
+  </div>
+  <div>
+      <app-users-list></app-users-list>
+  </div>
+  <router-outlet></router-outlet>
+</div>

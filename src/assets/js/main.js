@@ -43,9 +43,6 @@
               navbarCollapse2.classList.remove('show')
           })
       );
-      navbarToggler2.addEventListener('click', function() {
-          navbarToggler2.classList.toggle("active");
-      })
 
     // section menu active
 	function onScroll(event) {
@@ -69,7 +66,7 @@
     window.document.addEventListener('scroll', onScroll);
 
 
-      //====== counter up 
+      //====== counter up
       var cu = new counterUp({
         start: 0,
         duration: 2000,

@@ -20,15 +20,15 @@
               <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
                 <ul id="nav2" class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <a [routerLink]="['home']" [routerLinkActive]="['active']" class="page-scroll" href="index.html">Accueil</a>
+                    <a [routerLink]="['home']" [routerLinkActive]="['active']" class="page-scroll">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="page-scroll"  [routerLink]="['register']" href="inscription.html">Inscription</a>
+                    <a class="page-scroll"  [routerLink]="['auth/login']" >Inscription</a>
                   </li>
                   <li class="nav-item">
-                    <a class="page-scroll" [routerLink]="['register']"  href="resultat.html">Résultats</a>
+                    <a class="page-scroll" [routerLink]="['auth/login']"  >Résultats</a>
                   </li>
-                  <a href="login.html" [routerLink]="['login']"  class="button button-sm radius-10 d-none d-lg-flex">Connexion</a>
+                  <a [routerLink]="['auth/login']"  class="button button-sm radius-10 d-none d-lg-flex">Connexion</a>
                 </ul>
 
               </div>
