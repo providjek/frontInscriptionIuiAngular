@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { PLayoutComponent } from './p-layout/p-layout.component';
 import {RouterModule} from "@angular/router";
 import {PublicRoutingModule} from "./public-routing.module";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -15,10 +16,11 @@ import {PublicRoutingModule} from "./public-routing.module";
     RegisterComponent,
     PLayoutComponent
   ],
-  imports: [
-    CommonModule,
-    PublicRoutingModule,
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        PublicRoutingModule,
+        RouterModule,
+        FormsModule
+    ]
 })
 export class PublicModule { }
