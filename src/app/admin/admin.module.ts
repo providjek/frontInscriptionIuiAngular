@@ -6,6 +6,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ComptesComponent } from './comptes/comptes.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { UsersListComponent } from './users-list/users-list.component';
     AdminLayoutComponent,
     DashboardComponent,
     ComptesComponent,
-    UsersListComponent
+    UsersListComponent,
+    AdminHeaderComponent,
+    AdminFooterComponent
   ],
   imports: [
     CommonModule,
