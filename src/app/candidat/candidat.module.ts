@@ -8,6 +8,7 @@ import { CFooterComponent } from './c-footer/c-footer.component';
 import { CHeaderComponent } from './c-header/c-header.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { InscriptionForm1Component } from './inscription-form1/inscription-form1.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,9 +20,10 @@ import { InscriptionForm1Component } from './inscription-form1/inscription-form1
     InscriptionComponent,
     InscriptionForm1Component,
   ],
-  imports: [
-    CommonModule,
-    CandidatRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        CandidatRoutingModule,
+        FormsModule
+    ]
 })
 export class CandidatModule { }

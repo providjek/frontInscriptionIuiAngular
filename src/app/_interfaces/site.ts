@@ -1,4 +1,5 @@
 import {IZone} from "./izone";
+import {ICentre} from "./icentre";
 
 export interface ISite {
   id: number,
@@ -7,5 +8,6 @@ export interface ISite {
   description: string,
   image: string,
   pays: string,
-  zone :  IZone
+  zone :  IZone,
+  centre : ICentre[]
 }

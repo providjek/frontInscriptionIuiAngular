@@ -22,32 +22,200 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div  *ngIf="showCentre" class="row justify-content-center">
 
-      <div class="col-lg-4 col-md-8 col-sm-10">
+      <div *ngFor="let item of site"  class="col-lg-4 col-md-8 col-sm-10">
         <div class="single-pricing wow fadeInUp" data-wow-delay=".2s">
           <div class="image">
             <img src="assets/img/Cameroun.png" alt="">
           </div>
           <!--<h6>Pro Design</h6>-->
-          <h4>Cameroun</h4>
+          <h4>{{item.nom}}</h4>
           <!--<h3>$ 29.00</h3>-->
           <ul>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Yaoundé</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Douala</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Garoua</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Ngaoundéré</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Bafoussam</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Bertoua</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Ebolowa</li>
-            <li> <input name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; Maroua</li>
+            <li *ngFor="let item2 of item.centreExamenList" >
+              <input required name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; {{item2.nom}}
+            </li>
           </ul>
-          <a href="inscription2.html" class="button radius-30">Continuer</a>
+          <a (click)="toggleForm()" class="button  radius-30">Continuer</a>
         </div>
       </div>
+        </div>
+
+
+
+    <div *ngIf="showForm" class="container row justify-content-center ">
+
+        <div>&nbsp;</div>
+        <div class="row justify-content-center">
+          <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-10">
+            <div class="section-title text-center mb-60">
+              <h5 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Veuillez renseigner vos informations</h5>
+
+            </div>
+          </div>
+        </div>
+
+
+          <div class="col-lg-6">
+            <div class="contact-form-wrapper">
+              <form
+                name="form"
+                #f="ngForm"
+                (ngSubmit)="f.form.valid && onSubmit()"
+              >
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="date_naissance">Date de naissance</label>
+                      <input [(ngModel)]="form.date_naissance" #date_naissance="ngModel"  style="width: 100%;" type="text" id="date_naissance" name="date_naissance" class="form-input" placeholder="Date de naissance">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="nationalite">Nationalité</label>
+                      <input [(ngModel)]="form.nationalite" #nationalite="ngModel"   style="width: 100%;" type="text" id="nationalite" name="nationalite" class="form-input" placeholder="Nationalité">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="ville">Vile de résidence</label>
+                      <input  [(ngModel)]="form.ville" style="width: 100%;" type="text" id="ville" name="ville" class="form-input" placeholder="Ville de résidence">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="tel_pere">Numéro de téléphone du père</label>
+                      <input [(ngModel)]="form.tel_pere" style="width: 100%;" type="text" id="tel_pere" name="tel_pere" class="form-input" placeholder="Numéro de téléphone du pere">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="tel_mere">Numéro de téléphone de la mère</label>
+                      <input [(ngModel)]="form.tel_mere" style="width: 100%;" type="text" id="tel_mere" name="tel_mere" class="form-input" placeholder="Numéro de téléphone lla mere">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="email_pere">Email du pere</label>
+                      <input required [(ngModel)]="form.email_pere" style="width: 100%;" type="email" id="email_pere" name="email_pere" class="form-input" placeholder="Email du pere">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="email_mere">Email de la mere</label>
+                      <input required [(ngModel)]="form.email_mere" style="width: 100%;" type="email" id="email_mere" name="email_mere" class="form-input" placeholder="Email de la mere">
+                    </div>
+                  </div>
+
+                  <div class="align-content-center">
+                    <div class="single-input">
+                      <label for="genre">Genre</label>
+                      <input required [(ngModel)]="form.genre"  id="genre" name="genre" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Masculin </span> <br>
+                      <input  required [(ngModel)]="form.genre" name="genre" id="" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Féminin </span>
+                    </div>
+                  </div>
+
+                  <div class="align-content-center">
+                    <div class="single-input">
+                      <label for="langue">Langue parlée</label>
+                      <input  required [(ngModel)]="form.langue" name="langue" id="langue" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Français </span> <br>
+                      <input required [(ngModel)]="form.langue" name="langue" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Anglais </span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label for="dernier_Etablissement">Dernier établissement fréquenté</label>
+                      <input required [(ngModel)]="form.dernier_Etablissement" style="width: 100%;" type="text" id="dernier_Etablissement" name="dernier_Etablissement" class="form-input" placeholder="Dernier établissement fréquenté">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="single-input">
+                      <label >Choix des formations</label>
+                      <p>Le concours permet d'accéder à 3 formations</p>
+                      <p>A - Ingénieur généraliste par alternance et ingénieur génie des procédés</p>
+                      <p>B - Ingénieur généraliste parcours international</p>
+                      <p>C - Ingénieur informatique</p>
+                      <div>&nbsp;</div>
+                      <label for="cycle" >Concourir pour</label>
+                      <div class="align-content-center">
+                        <input  required [(ngModel)]="form.cycle" name="cycle" id="cycle" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> 1er cycle </span>
+                      </div>
+
+                      <div class="align-content-center">
+                        <input  required [(ngModel)]="form.cycle" name="cycle"  style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> 2nd cycle </span>
+                      </div>
+
+                      &nbsp;
+
+                      <label >Indiquez le nombre de formations auquel vous candidatez</label>
+
+                      <div class="align-content-center">
+                        <input  required [(ngModel)]="form.paiement" name="paiement" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Concourir pour une formation(20 000 FCFA) </span>
+                      </div>
+
+                      <div class="align-content-center">
+                        <input name="paiement"   [(ngModel)]="form.paiement"  style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Concourir pour deux formations(25 000 FCFA) </span>
+                      </div>
+
+                      <div class="align-content-center">
+                        <input name="paiement"  [(ngModel)]="form.paiement"   style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Concourir pour trois formations(30 000 FCFA) </span>
+                      </div>
+
+                      &nbsp;
+
+                      <label >Choix des formations</label>
+
+                      <div class="align-content-center">
+                        <input    [(ngModel)]="form.formation1" name="formation1"   style="width: 20px; height: 20px;" type="checkbox" class="form-input"> &nbsp; <span style="font-size: 17px;"> A </span>
+                      </div>
+
+                      <div class="align-content-center">
+                        <input    [(ngModel)]="form.formation2" name="formation2"   style="width: 20px; height: 20px;" type="checkbox" class="form-input"> &nbsp; <span style="font-size: 17px;"> B </span>
+                      </div>
+
+                      <div class="align-content-center">
+                        <input    [(ngModel)]="form.formation3" name="formation3"   style="width: 20px; height: 20px;" type="checkbox" class="form-input"> &nbsp; <span style="font-size: 17px;"> C </span>
+                      </div>
+
+                      &nbsp;
+
+                      <label for="image">Photo</label>
+                      <div class="align-content-center">
+                        <input    [(ngModel)]="form.image"   type="file" id="image" name="image"> &nbsp;
+                      </div>
+
+                      &nbsp;
+
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-button">
+                      <button type="submit" class="button radius-10">Valider et procéder au paiement </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+      </div>
+
+
+
     </div>
 
-  </div>
+
   <br>
 
 </section>
