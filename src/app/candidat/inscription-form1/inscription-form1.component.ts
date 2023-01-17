@@ -13,7 +13,7 @@ export class InscriptionForm1Component implements OnInit {
   public site :any;
   public showForm: boolean = false;
   public showCentre : boolean = true;
-  public  form: ICandidature={
+  public  candidatureForm: ICandidature={
     langue: "",
     email_pere: "",
     email_mere: "",
@@ -54,12 +54,12 @@ export class InscriptionForm1Component implements OnInit {
 
   toggleForm():void{
     this.showForm = !this.showForm;
-    console.log(this.form);
+    console.log(this.candidatureForm);
     this.showCentre =!this.showForm;
   }
 
   onSubmit() {
-    console.log(this.form);
-    return false;
+    console.log(this.candidatureForm);
+    return true;
   }
 }
