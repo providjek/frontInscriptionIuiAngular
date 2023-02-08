@@ -9,6 +9,8 @@ import { CHeaderComponent } from './c-header/c-header.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { InscriptionForm1Component } from './inscription-form1/inscription-form1.component';
 import {FormsModule} from "@angular/forms";
+import { HomeInscrisComponent } from './home-inscris/home-inscris.component';
+import { ResultatComponent } from './resultat/resultat.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import {FormsModule} from "@angular/forms";
     CHeaderComponent,
     InscriptionComponent,
     InscriptionForm1Component,
+    HomeInscrisComponent,
+    ResultatComponent,
   ],
     imports: [
         CommonModule,

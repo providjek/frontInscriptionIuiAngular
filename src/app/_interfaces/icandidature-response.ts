@@ -1,11 +1,13 @@
-export interface ICandidature {
+import {IUtilisateurResponseModel} from "./utilisateur-response-model";
+
+export interface ICandidatureResponse {
   langue: string,
   email_pere: string,
   email_mere: string,
   statut: string,
   code_examen: number
   cycle: string,
-  compteID: number,
+  compte: IUtilisateurResponseModel,
   nationalite: string,
   genre: string,
   tel_pere: string,

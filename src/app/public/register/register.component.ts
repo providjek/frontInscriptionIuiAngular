@@ -19,8 +19,9 @@ export class RegisterComponent implements OnInit {
     role: "CANDIDAT",
     id_disponibilite: 0
   };
-
-
+  confirmPasswordField : string = "";
+  showMsgError : boolean = false;
+  msgError: string = "";
 
   constructor(
     private  authService: AuthenticationService,
@@ -31,7 +32,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form)
+    if(this.form)
+    console.log(this.form);
     this.authService.register(this.form).subscribe(
       data => {
         console.log(data);
@@ -40,9 +42,15 @@ export class RegisterComponent implements OnInit {
         },
       err => {
         console.log(err);
-        console.log(err.errors);
-        console.log("Inscription réussie");
-        this.router.navigate(['/auth/login'])
+        console.log(err.status);
+        if(err.status ===200){
+          console.log("Inscription réussie");
+          this.router.navigate(['/auth/login'])
+        }else{
+          this.msgError = "Une erreur s'est produite ! \n Cette adresse mail a été déjà utilisée. \ Veillez vérifier vos informatons, votre connexion internet et réessayez!!!";
+          this.showMsgError = true;
+        }
+
 
       }
     );

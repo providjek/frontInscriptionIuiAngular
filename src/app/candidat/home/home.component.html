@@ -1,4 +1,4 @@
-<section id="home" class="hero-section-wrapper-2">
+<section *ngIf="showLien" id="home" class="hero-section-wrapper-2">
 <!-- ========================= hero-2 start ========================= -->
 <div class="hero-section hero-style-2">
   <div class="container">
@@ -23,8 +23,37 @@
         </div>
       </div>
     </div>
+
+
+
   </div>
 </div>
 <!-- ========================= hero-2 end ========================= -->
 
+</section>
+
+<section *ngIf="showSession" id="contact" class="contact-section contact-style-6">
+  <div class="container">
+    <div>&nbsp;</div>
+    <div class="row justify-content-center">
+
+      <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-10">
+        <div class="section-title text-center mb-60">
+          <h4 class="wow fadeInUp" data-wow-delay=".4s">{{session.nom}}</h4>
+          <div>&nbsp;</div>
+          <h5 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Candidature déjà enregistrée pour cette session d'examen</h5>
+
+        </div>
+      </div>
+
+      <div class="col-12">
+
+        <h6 class="text-center">Date d'examen:  <b style="color: #df650d">{{session.date_examen | date: "dd/MM/yyyy"}}</b></h6><br/>
+        <h6 class="text-center">Date limite des inscriptions au concours  <b style="color: #df650d">{{session.date_limite | date:"dd/MM/yyyy"}}</b></h6>
+        <br>
+
+      </div>
+    </div>
+
+  </div>
 </section>

@@ -36,6 +36,7 @@ export class CHeaderComponent implements OnInit {
       data => {
         console.log(data);
           this.candidat = data;
+
       },
       error => console.log(error)
     );
@@ -44,7 +45,14 @@ export class CHeaderComponent implements OnInit {
   }
 
   logout():void {
-    this.tokenService.clearToken();
-    this.router.navigate(['/home']);
+    let alert =  confirm("Voulez-vous vraiment vous déconnectez ?");
+    if(alert){
+      this.router.navigate(['/home']);
+      this.tokenService.clearToken();
+      this.userService.clearID();
+      this.userService.clearHaveCandidature();
+    }else{
+      console.log("tes");
+    }
   }
 }

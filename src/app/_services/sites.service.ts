@@ -9,8 +9,10 @@ import {ISite} from "../_interfaces/site";
 })
 export class SitesService {
 
-  private  url_site: string ="http://10.237.56.46:8080/api/v1/admin/site/all";
-  private  url_centre: string ="http://10.237.56.46:8080/api/v1/admin/centre_examen/all";
+  private  url_site: string ="http://localhost:8080/api/v1/admin/site/all";
+  private  url_centre: string ="http://localhost:8080/api/v1/admin/centre_examen/all";
+// private  url_site: string ="http://10.237.56.46:8080/api/v1/admin/site/all";
+ // private  url_centre: string ="http://10.237.56.46:8080/api/v1/admin/centre_examen/all";
 
   constructor(
     private  http: HttpClient

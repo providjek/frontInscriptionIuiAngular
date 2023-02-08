@@ -11,57 +11,77 @@
             #f="ngForm"
             (ngSubmit)="f.form.valid && onSubmit()"
           >
+            <div *ngIf="showMsgError" style="color: #c0262d;">
+                {{msgError}}
+            </div>
+
             <div class="row">
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="name" name="name"  [(ngModel)]="form.name" #name="ngModel" class="form-input col-12" placeholder="Noms">
+                  <input required type="text" id="name" name="name"  [(ngModel)]="form.name" #name="ngModel" class="form-input col-12" placeholder="Noms">
+                </div>
+                <div *ngIf="name.invalid && name.pristine" style="color: #c0262d;">
+                  Le nom est requis.
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input type="text" id="prenom" name="prenom"  [(ngModel)]="form.prenom" #prenom="ngModel" class="form-input col-12" placeholder="Prenom">
+                  <input required type="text" id="prenom" name="prenom"  [(ngModel)]="form.prenom" #prenom="ngModel" class="form-input col-12" placeholder="Prenom">
                 </div>
-              </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
-                <div class="single-input">
-                  <!--<label for="name">Name</label>-->
-                  <input type="text" id="telephone" name="telephone"   [(ngModel)]="form.telephone" #telephone="ngModel" class="form-input col-12" placeholder="Telephone">
-                </div>
-              </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
-                <div class="single-input">
-                  <!--<label for="name">Name</label>-->
-                  <input type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email">
 
+                <div *ngIf="prenom.invalid && prenom.touched" style="color: #c0262d;">
+                  Le prenom est requis.
+                </div>
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-md-12">
+                <div class="single-input">
+                  <!--<label for="name">Name</label>-->
+                  <input required type="text" id="telephone" name="telephone"   [(ngModel)]="form.telephone" #telephone="ngModel" class="form-input col-12" placeholder="Telephone">
+                </div>
+                <div *ngIf="telephone.invalid && telephone.touched" style="color: #c0262d;">
+                  Le numéro de telepone est requis.
+                </div>
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-md-12">
+                <div class="single-input">
+                  <!--<label for="name">Name</label>-->
+                  <input required type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email">
+
+                </div>
+                <div *ngIf="email.invalid && email.touched" style="color: #c0262d;">
+                    L'adresse mail est réquise pour créer le compte, verifiez si elle est correcte et reéssayez !
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input type="password" id="password" name="password"  [(ngModel)]="form.password" #password="ngModel" class="form-input col-12" placeholder="Mot de passe">
-
+                  <input required type="password" id="password" name="password"  [(ngModel)]="form.password" #password="ngModel" class="form-input col-12" placeholder="Mot de passe">
+                  <div *ngIf="email.invalid && email.touched" style="color: #c0262d;">
+                      Le mot de passe réquis !
+                  </div>
                 </div>
               </div>
               <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input type="password" id="passwordconf" name="passwordconf" class="form-input col-12" placeholder="Confirmer Mot de passe">
-
+                  <input required type="password" id="confirmPasswordField" name="confirmPasswordField" class="form-input col-12"
+                         placeholder="Confirmer Mot de passe">
                 </div>
-              </div>
 
-              <div class="col-md-12">
+
+
                 <div class="form-button">
-                  <button type="submit" class="button radius-10">S'inscrire </button>
+                  <button type="submit" [disabled]="!f.form.valid" class="button radius-10">S'inscrire</button>
                 </div>
               </div>
+
               <div>&nbsp;</div>
               <a href="login.html">Vous avez déjà un compte? Connectez-vous</a>
             </div>

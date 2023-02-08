@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {TokenInterceptorProvider} from "./_helpers/token.interceptor";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {TokenInterceptorProvider} from "./_helpers/token.interceptor";
     HttpClientModule
   ],
   providers: [
-    TokenInterceptorProvider
+    TokenInterceptorProvider,
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

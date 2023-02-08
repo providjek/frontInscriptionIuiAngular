@@ -14,24 +14,24 @@
 	}
 
 
-    window.onscroll = function () {
-        var header_navbar = document.querySelector(".hero-section-wrapper-2 .header");
-        var sticky = header_navbar.offsetTop;
-
-        if (window.pageYOffset > sticky) {
-            header_navbar.classList.add("sticky");
-        } else {
-            header_navbar.classList.remove("sticky");
-        }
-
-        // show or hide the back-top-top button
-        var backToTo = document.querySelector(".scroll-top");
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            backToTo.style.display = "flex";
-        } else {
-            backToTo.style.display = "none";
-        }
-    };
+    // window.onscroll = function () {
+    //     var header_navbar = document.querySelector(".hero-section-wrapper-2 .header");
+    //     var sticky = header_navbar.offsetTop;
+    //
+    //     if (window.pageYOffset > sticky) {
+    //         header_navbar.classList.add("sticky");
+    //     } else {
+    //         header_navbar.classList.remove("sticky");
+    //     }
+    //
+    //     // show or hide the back-top-top button
+    //     var backToTo = document.querySelector(".scroll-top");
+    //     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    //         backToTo.style.display = "flex";
+    //     } else {
+    //         backToTo.style.display = "none";
+    //     }
+    // };
 
       // header-5  toggler-icon
       let navbarToggler2 = document.querySelector(".header-2 .navbar-toggler");
@@ -43,9 +43,9 @@
               navbarCollapse2.classList.remove('show')
           })
       );
-      navbarToggler2.addEventListener('click', function() {
-          navbarToggler2.classList.toggle("active");
-      })
+     // navbarToggler2.addEventListener('click', function() {
+   //       navbarToggler2.classList.toggle("active");
+   //   })
 
     // section menu active
 	function onScroll(event) {
@@ -69,7 +69,7 @@
     window.document.addEventListener('scroll', onScroll);
 
 
-      //====== counter up 
+      //====== counter up
       var cu = new counterUp({
         start: 0,
         duration: 2000,

@@ -9,7 +9,7 @@
         <div class="row align-items-center">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand"  [routerLink]="['home']"  >
                 <img src="assets/img/LogoUcacIcamjpg.jpg" alt="Logo" />
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
                     <a class="page-scroll" [routerLink]="['inscription']"  routerLinkActive="active" >Inscription</a>
                   </li>
                   <li class="nav-item">
-                    <a class="page-scroll" href="resultat.html" [routerLinkActive]="['active']" >Résultat</a>
+                    <a class="page-scroll" [routerLink]="['resultat']"  [routerLinkActive]="['active']" >Résultat</a>
                   </li>
                 </ul>
                 <a (click)="logout()" class="button button-sm radius-10 d-none d-lg-flex"><img src="assets/img/person.svg"> {{candidat.name + ' '+candidat.prenom

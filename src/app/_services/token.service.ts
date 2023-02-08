@@ -82,4 +82,9 @@ export class TokenService {
     return null;
   }
 
+  isExpiredToken(token: TokenModel): boolean{
+    const currentTime = new Date().getTime() / 1000;
+    return token.exp < currentTime;
+  }
+
 }

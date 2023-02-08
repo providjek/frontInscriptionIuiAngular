@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {SessionService} from "../../_services/session.service";
 import {ISessionModel} from "../../_interfaces/isession-model";
+import {CandidatureService} from "../../_services/candidature.service";
+import {TokenService} from "../../_services/token.service";
+import {UsersService} from "../../_services/users.service";
 
 @Component({
   selector: 'app-home',
@@ -16,9 +19,17 @@ export class HomeComponent implements OnInit {
   date_limite: new Date(),
   date_examen: new Date(),
   statut: false
-}
+};
+  public compteID : string | null = "";
+  public showSession: boolean = false;
+  public showLien: boolean = true;
 
-  constructor(private sessionService :SessionService) { }
+  constructor(
+    private sessionService :SessionService,
+    private candidatureService : CandidatureService,
+    private tokenService : TokenService,
+    private userService : UsersService
+  ) { }
 
   ngOnInit(): void {
       this.sessionService.getActiveSession().subscribe(
@@ -28,7 +39,46 @@ export class HomeComponent implements OnInit {
         },
         error => console.log(error)
       );
+      let token: string | null = this.tokenService.getToken();
+      let email :string= "";
+      if(!!token){
+            email = this.tokenService.decodeToken(token).sub;
+        }
+      console.log(email+" le mail");
+      this.userService.getUserByEmail(email).subscribe(
+        data => {
+          this.candidatureService.hasCandidature(String(data.id)).subscribe(
+            data2=>{
+              console.log(data2.length);
 
+              if(data2.length > 0){
+                for (let iCandidatureRespons of data2) {
+                  if (iCandidatureRespons.candidatureActif === true) {
+                    this.showSession = true;
+                    this.showLien = false;
+                  }
+                }
+              }
+
+            },
+            error => console.log(error.status)
+          )
+        }, error => {
+          console.log(error);
+        }
+      );
+
+     /* console.log("#########"+this.compteID);
+      if (!!this.compteID) {
+        this.candidatureService.hasCandidature(this.compteID).subscribe(
+          data =>{
+            console.log(data);
+          }, error => {
+            console.log(error.status);
+          }
+        );
+
+      }*/
   }
 
 }
