@@ -1,0 +1,94 @@
+#contact {
+    display: flex;
+  }
+
+  #contact .container {
+margin: auto;
+}
+
+#contact .container .row {
+        
+}
+
+#contact .container .row .card{
+    border-radius: 10px;
+    box-shadow: 0 0 1px 0px #b8aeae;
+    padding: 0;
+    display: grid;
+    width: 65%;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card > .illustration > img {
+    width: 100%;
+    height: 100%;
+}
+
+.card > .content {
+    text-align: center;
+    padding: 24px;
+    margin: 0;
+}
+
+.content  .single-input > input {
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    background: ghostwhite;
+    border: 1px solid gainsboro;
+}
+.content  .steps {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.content  .steps .step-item{
+
+}
+
+.content  .steps .line{
+    width: 100%;
+    background: gainsboro;
+    height: 8px;
+    position: relative;
+    margin-inline: 0.5rem;
+}
+
+.content  .steps .line .progress{
+    position: absolute;
+    top: 0;
+    height: 8px;
+    width: 0%;
+    transition: width 200ms ease;
+    /* background: #086b06; */
+    background: #de640d;
+}
+
+.content  .steps .line .progress-width{
+    width: 100%;
+}
+
+.content  .steps .step-current{
+    /* background: #de640d; */
+    border-radius: 50%;
+    width: 38px;
+    height: 29.2px;
+    padding: 8px;
+    line-height: 1;
+}
+
+.content  .steps .step-validate{
+    /* background: #086b06 !important; */
+    background: #de640d;
+    color: white;
+    font-weight: bold;
+}
+
+.form-button button {
+    width: 100%;
+}

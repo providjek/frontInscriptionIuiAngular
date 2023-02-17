@@ -1,27 +1,24 @@
 <section id="contact" class="contact-section contact-style-6">
   <div class="container">
-    <div>&nbsp;</div>
-
     <div class="row justify-content-center">
-      <div class="col-lg-5" style="border-style: solid; border-width: 2px; border-radius: 50px; border-color: #c0262d; padding: 50px;">
-        <div class="contact-form-wrapper text-center">
+      <div class="col-lg-5 card">
+        <div class="illustration">
+          <img src="/assets/img/auth/signin.svg" alt="" loading="lazy" srcset="">
+        </div>
+        <div class="content">
           <img src="assets/img/person.svg" width="100px" height="100px">
           <h4 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Se connecter</h4>
-          <form
-            name="form"
-            #f="ngForm"
-            (ngSubmit)="f.form.valid && onSubmit()"
-          >
+          <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
             <div *ngIf="showMsgError" style="color: #c0262d;">
               {{msgError}}
             </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="single-input">
-                  <!--<label for="name">Name</label>-->
-                  <input required type="email" name="username" id="username"  class="form-input col-12" placeholder="Email" [(ngModel)]="form.username" #username="ngModel" >
-                  <div class="input-error"  *ngIf="username.errors && f.submitted">
-                      Le champs Email est réquis !
+                  <input required type="email" name="username" id="username" class="form-input col-12"
+                    placeholder="Email" [(ngModel)]="form.username" #username="ngModel">
+                  <div class="input-error" *ngIf="username.errors && f.submitted">
+                    Le champs Email est réquis !
                   </div>
 
                 </div>
@@ -30,14 +27,15 @@
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input required minlength="3" type="password" class="form-input col-12" placeholder="Mot de passe" name="password" id="password" [(ngModel)]="form.password" #password = "ngModel" >
-                      <div class="input-error"  *ngIf="password.errors && f.submitted">
-                        Le champs mot de passe est réquis !
-                      </div>
+                  <input required minlength="3" type="password" class="form-input col-12" placeholder="Mot de passe"
+                    name="password" id="password" [(ngModel)]="form.password" #password="ngModel">
+                  <div class="input-error" *ngIf="password.errors && f.submitted">
+                    Le champs mot de passe est réquis !
+                  </div>
 
                 </div>
               </div>
-
+              <div>&nbsp;</div>
               <div class="col-md-12">
                 <div class="form-button">
                   <button type="submit" class="button radius-10">Se connecter </button>

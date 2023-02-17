@@ -2,81 +2,109 @@
   <div class="container">
     <div>&nbsp;</div>
     <div class="row justify-content-center">
-      <div class="col-lg-5" style="border-style: solid; border-width: 2px; border-radius: 50px; border-color: #c0262d; padding: 50px;">
-        <div class="contact-form-wrapper text-center">
-          <img src="assets/img/person.svg" width="100px" height="100px">
-          <h4 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">S'inscrire</h4>
-          <form
-            name="form"
-            #f="ngForm"
-            (ngSubmit)="f.form.valid && onSubmit()"
-          >
-            <div *ngIf="showMsgError" style="color: #c0262d;">
-                {{msgError}}
+      <div class="col-lg-5 card">
+        <div class="illustration">
+          <img src="/assets/img/auth/signup.svg" alt="" loading="lazy" srcset="">
+        </div>
+        <div class="content">
+          <h4 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Inscription</h4>
+          <div class="steps">
+            <span class="step-current step-validate">
+              1
+            </span>
+            <div class="line">
+              <div class="progress" [ngClass]="{'progress-width':step>1}"></div>
+            </div>
+            <span class="step-current" [ngClass]="{'step-validate':step>1}">
+              2
+            </span>
+          </div>
+          <div>&nbsp;</div>
+          <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+            <div *ngIf="showMsgError" style="text-align: start; color: #c0262d;">
+              {{msgError}}
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12" [hidden]="step==2">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input required type="text" id="name" name="name"  [(ngModel)]="form.name" #name="ngModel" class="form-input col-12" placeholder="Noms">
+                  <input required type="text" id="name" name="name" [(ngModel)]="form.name" #name="ngModel"
+                    class="form-input col-12" placeholder="Noms">
                 </div>
-                <div *ngIf="name.invalid && name.touched" style="color: #c0262d;">
+                <div *ngIf="name.invalid && name.touched" style="text-align: start;color: #c0262d;">
                   Le nom est requis.
                 </div>
               </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
+              <div [hidden]="step==2">&nbsp;</div>
+              <div class="col-md-12" [hidden]="step==2">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input required type="text" id="prenom" name="prenom"  [(ngModel)]="form.prenom" #prenom="ngModel" class="form-input col-12" placeholder="Prenom">
+                  <input required type="text" id="prenom" name="prenom" [(ngModel)]="form.prenom" #prenom="ngModel"
+                    class="form-input col-12" placeholder="Prenom">
                 </div>
 
-                <div *ngIf="prenom.invalid && prenom.touched" style="color: #c0262d;">
+                <div *ngIf="prenom.invalid && prenom.touched" style="text-align: start;color: #c0262d;">
                   Le prenom est requis.
                 </div>
               </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
+              <div [hidden]="step==2">&nbsp;</div>
+              <div class="col-md-12" [hidden]="step==2">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input required type="text" id="telephone" name="telephone"   [(ngModel)]="form.telephone" #telephone="ngModel" class="form-input col-12" placeholder="Telephone">
+                  <input required type="text" id="telephone" name="telephone" [(ngModel)]="form.telephone"
+                    #telephone="ngModel" class="form-input col-12" placeholder="Telephone">
                 </div>
-                <div *ngIf="telephone.invalid && telephone.touched" style="color: #c0262d;">
+                <div *ngIf="telephone.invalid && telephone.touched" style="text-align: start;color: #c0262d;">
                   Le numéro de telepone est requis.
                 </div>
               </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
+
+              <div class="col-md-12" [hidden]="step==1">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input required type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+                  <input required type="text" id="email" name="email" [(ngModel)]="form.email" #email="ngModel"
+                    class="form-input col-12" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
                 </div>
                 <div *ngIf="email.invalid && email.touched" style="color: #c0262d;">
-                    L'adresse mail est réquise pour créer le compte, verifiez si elle est correcte et reéssayez !
+                  L'adresse mail est réquise pour créer le compte, verifiez si elle est correcte et reéssayez !
                 </div>
               </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
+              <div [hidden]="step==1">&nbsp;</div>
+              <div class="col-md-12" [hidden]="step==1">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input required type="password" id="password" name="password"  [(ngModel)]="form.password" #password="ngModel" class="form-input col-12" placeholder="Mot de passe">
+                  <input required type="password" id="password" name="password" [(ngModel)]="form.password"
+                    #password="ngModel" class="form-input col-12" placeholder="Mot de passe">
                   <div *ngIf="email.invalid && email.touched" style="color: #c0262d;">
-                      Le mot de passe réquis !
+                    Le mot de passe réquis !
                   </div>
                 </div>
               </div>
-              <div>&nbsp;</div>
-              <div class="col-md-12">
+              <div [hidden]="step==1">&nbsp;</div>
+              <div class="col-md-12" [hidden]="step==1">
                 <div class="single-input">
                   <!--<label for="email">Email</label>-->
-                  <input required type="password" id="confirmPasswordField" name="confirmPasswordField" class="form-input col-12"
-                         placeholder="Confirmer Mot de passe">
+                  <input required type="password" id="confirmPasswordField" name="confirmPasswordField"
+                    class="form-input col-12" placeholder="Confirmer Mot de passe">
                 </div>
+              </div>
 
-
-
+              <div>&nbsp;</div>
+              <div class="col-md-12" *ngIf="step==1">
+                <div class="form-button">
+                  <button type="button" (click)="switchStep(2)" [disabled]="prenom.invalid || name.invalid"
+                    class="button radius-10">Suivant</button>
+                </div>
+              </div>
+              <div class="col-md-12" *ngIf="step==2">
+                <div class="form-button">
+                  <button type="button" (click)="switchStep(1)" class="button radius-10">Precedent</button>
+                </div>
+              </div>
+              <div *ngIf="step==2">&nbsp;</div>
+              <div class="col-md-12" *ngIf="step==2">
                 <div class="form-button">
                   <button type="submit" [disabled]="!f.form.valid" class="button radius-10">S'inscrire</button>
                 </div>
