@@ -17,7 +17,8 @@
                 <div class="single-input">
                   <input required type="email" name="username" id="username" class="form-input col-12"
                     placeholder="Email" [(ngModel)]="form.username" #username="ngModel">
-                  <div class="input-error" *ngIf="username.errors && f.submitted">
+                  <div class="input-error" style="text-align: start;color: #c0262d;"
+                    *ngIf="username.errors && f.submitted">
                     Le champs Email est réquis !
                   </div>
 
@@ -29,7 +30,8 @@
                   <!--<label for="email">Email</label>-->
                   <input required minlength="3" type="password" class="form-input col-12" placeholder="Mot de passe"
                     name="password" id="password" [(ngModel)]="form.password" #password="ngModel">
-                  <div class="input-error" *ngIf="password.errors && f.submitted">
+                  <div class="input-error" style="text-align: start;color: #c0262d;"
+                    *ngIf="password.errors && f.submitted">
                     Le champs mot de passe est réquis !
                   </div>
 
