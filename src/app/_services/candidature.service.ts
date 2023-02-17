@@ -11,10 +11,11 @@ import {ICandidatureResponse} from "../_interfaces/icandidature-response";
 })
 export class CandidatureService {
 
-  //url:string = 'http://10.237.56.46:9090/candidature/Candidats';
-url:string = 'http://localhost:9090/candidature/Candidats';
-urlhasCandidature:string = 'http://localhost:9090/candidature/';
-idCcompte : string = "";
+  //url:string = 'http://localhost:9090/candidature/Candidats';
+  url:string = 'http://51.178.136.105:9090/candidature/Candidats';
+  urlhasCandidature:string = 'http://51.178.136.105:9090/candidature/';
+  //urlhasCandidature:string = 'http://localhost:9090/candidature/';
+  idCcompte : string = "";
 
   constructor(
     private  http : HttpClient,

@@ -12,6 +12,9 @@
             #f="ngForm"
             (ngSubmit)="f.form.valid && onSubmit()"
           >
+            <div *ngIf="showMsgError" style="color: #c0262d;">
+              {{msgError}}
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="single-input">

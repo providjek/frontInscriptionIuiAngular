@@ -21,7 +21,7 @@
                   <!--<label for="name">Name</label>-->
                   <input required type="text" id="name" name="name"  [(ngModel)]="form.name" #name="ngModel" class="form-input col-12" placeholder="Noms">
                 </div>
-                <div *ngIf="name.invalid && name.pristine" style="color: #c0262d;">
+                <div *ngIf="name.invalid && name.touched" style="color: #c0262d;">
                   Le nom est requis.
                 </div>
               </div>
@@ -50,7 +50,7 @@
               <div class="col-md-12">
                 <div class="single-input">
                   <!--<label for="name">Name</label>-->
-                  <input required type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email">
+                  <input required type="text" id="email" name="email"   [(ngModel)]="form.email" #email="ngModel" class="form-input col-12" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
 
                 </div>
                 <div *ngIf="email.invalid && email.touched" style="color: #c0262d;">

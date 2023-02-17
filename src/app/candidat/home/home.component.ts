@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   date_examen: new Date(),
   statut: false
 };
+
+  public candidature : any;
+
   public compteID : string | null = "";
   public showSession: boolean = false;
   public showLien: boolean = true;
@@ -44,7 +47,7 @@ export class HomeComponent implements OnInit {
       if(!!token){
             email = this.tokenService.decodeToken(token).sub;
         }
-      console.log(email+" le mail");
+      console.log(email+" le mailll");
       this.userService.getUserByEmail(email).subscribe(
         data => {
           this.candidatureService.hasCandidature(String(data.id)).subscribe(
@@ -54,6 +57,8 @@ export class HomeComponent implements OnInit {
               if(data2.length > 0){
                 for (let iCandidatureRespons of data2) {
                   if (iCandidatureRespons.candidatureActif === true) {
+                    console.log(iCandidatureRespons);
+                    this.candidature = iCandidatureRespons;
                     this.showSession = true;
                     this.showLien = false;
                   }

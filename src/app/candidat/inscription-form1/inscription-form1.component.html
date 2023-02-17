@@ -26,7 +26,7 @@
       </div>
 
       <div *ngFor="let item of site"  class="col-lg-4 col-md-8 col-sm-10">
-        <div class="single-pricing wow fadeInUp"  style="height: 820px" data-wow-delay=".2s">
+        <div class="single-pricing wow fadeInUp"  style="height: 600px" data-wow-delay=".2s">
           <div class="image">
             <img src="assets/img/Cameroun.png" alt="">
           </div>
@@ -38,7 +38,7 @@
               <input  [(ngModel)]="candidatureForm.centre" value="{{item2.nom}}" required name="examcenter" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; {{item2.nom}}
             </li>
           </ul><!---->
-          <a (click)="toggleForm()" class="button  radius-30">Continuer</a>
+          <a (click)="toggleForm()" style="position: absolute; bottom: 15px;" class="button  radius-30">Continuer</a>
         </div>
       </div></div>
 

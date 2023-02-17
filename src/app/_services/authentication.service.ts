@@ -11,12 +11,11 @@ import {Router} from "@angular/router";
 })
 export class AuthenticationService {
 
-  //url:string = 'http://10.237.56.46:8081/token';
-  url:string = 'http://localhost:8081/token';
-  //url:string = 'http://192.168.254.68:8081/token';
-  //url_register:string = 'http://10.237.56.46:8081/register';
- url_register:string = 'http://localhost:8081/register';
-//  url_register:string = 'http://192.168.254.68:8081/register';
+
+  //url:string = 'http://localhost:8081/token';
+  url:string = 'http://51.178.136.105:8081/token';
+  //url_register:string = 'http://localhost:8081/register';
+  url_register:string = 'http://51.178.136.105:8081/register';
 
   constructor(private  http: HttpClient, private router : Router) { }
 

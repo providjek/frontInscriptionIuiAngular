@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
     password : ""
   };
   role : string = "";
+  showMsgError: boolean = false;
+  msgError: string = "";
+
+
   constructor(
     private authService : AuthenticationService,
     private  tokenService : TokenService,
@@ -63,7 +67,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/candidat/home']);
         }
       },
-      err => console.log(err)
+      err => {
+        if(err.status != 200){
+          this.msgError = "Une erreur s'est produite ! \n Le mot de passe ou l'adresse mail est incorrect. \ Veillez vérifier vos informatons, votre connexion internet et réessayez!!!";
+          this.showMsgError = true;
+        }
+      }
     );
 
   }

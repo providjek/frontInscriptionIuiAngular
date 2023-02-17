@@ -11,10 +11,10 @@ import {IUtilisateurResponseModel} from "../_interfaces/utilisateur-response-mod
 })
 export class UsersService {
 
-  private  url_all_users:string = 'http://localhost:8081/api/comptes';
-  private  url_user_by_email : string = 'http://localhost:8081/api/byemail/';
-  //private  url_all_users:string = 'http://192.168.254.68:8081/api/comptes';
-  //private  url_user_by_email : string = 'http://192.168.254.68:8081/api/byemail/';
+  private  url_all_users:string = 'http://51.178.136.105:8081/api/comptes';
+  //private  url_user_by_email : string = 'http://localhost:8081/api/byemail/';
+  //private  url_user_by_email : string = 'http://localhost:8081/api/byemail/';
+  private  url_user_by_email : string = 'http://51.178.136.105:8081/api/byemail/';
 
   constructor(private  http: HttpClient) { }
 
