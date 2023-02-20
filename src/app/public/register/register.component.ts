@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ICredential} from "../../_interfaces/credential";
-import {IUtilisateur} from "../../_interfaces/utilisateur";
-import {AuthenticationService} from "../../_services/authentication.service";
-import {Router} from "@angular/router";
+import { ICredential } from "../../_interfaces/credential";
+import { IUtilisateur } from "../../_interfaces/utilisateur";
+import { AuthenticationService } from "../../_services/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form : IUtilisateur = {
+  form: IUtilisateur = {
     name: "",
     prenom: "",
     password: "",
@@ -19,34 +19,40 @@ export class RegisterComponent implements OnInit {
     role: "CANDIDAT",
     id_disponibilite: 0
   };
-  confirmPasswordField : string = "";
-  showMsgError : boolean = false;
+  confirmPasswordField: string = "";
+  showMsgError: boolean = false;
   msgError: string = "";
 
+  step: number = 1;
+
+  switchStep(step: number) {
+    this.step = step;
+  }
+
   constructor(
-    private  authService: AuthenticationService,
-    private  router : Router
+    private authService: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    if(this.form)
-    console.log(this.form);
+    if (this.form)
+      console.log(this.form);
     this.authService.register(this.form).subscribe(
       data => {
         console.log(data);
         console.log("Inscription réussie");
         this.router.navigate(['/auth/login']);
-        },
+      },
       err => {
         console.log(err);
         console.log(err.status);
-        if(err.status ===200){
+        if (err.status === 200) {
           console.log("Inscription réussie");
           this.router.navigate(['/auth/login'])
-        }else{
+        } else {
           this.msgError = "Une erreur s'est produite ! \n Cette adresse mail a été déjà utilisée. \ Veillez vérifier vos informatons, votre connexion internet et réessayez!!!";
           this.showMsgError = true;
         }
