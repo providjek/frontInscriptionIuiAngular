@@ -1,34 +1,35 @@
 <section *ngIf="showLien" id="home" class="hero-section-wrapper-2">
-<!-- ========================= hero-2 start ========================= -->
-<div class="hero-section hero-style-2">
-  <div class="container">
+  <!-- ========================= hero-2 start ========================= -->
+  <div class="hero-section hero-style-2">
     <div>
-      &nbsp;
-    </div>
-    <div class="row align-items-end">
-      <div class="col-lg-6">
-        <div class="hero-content-wrapper">
+      <div>
+        &nbsp;
+      </div>
+      <div class="row">
+        <div class="block col-lg-6">
+          <div class="hero-content-wrapper">
 
-          <h4 class="wow fadeInUp" data-wow-delay=".2s">{{session.nom}}</h4>
+            <h4 class="wow fadeInUp" data-wow-delay=".2s">{{session.nom}}</h4>
 
-          <div class="buttons">
-            <a [routerLink]="['/candidat/inscription']" rel="nofollow" class="button button-lg radius-10 wow fadeInUp" data-wow-delay=".7s">Inscrivez-vouss maintenant</a>
+            <div class="buttons">
+              <a [routerLink]="['/candidat/inscription']" rel="nofollow" class="button button-lg radius-10 wow fadeInUp"
+                data-wow-delay=".7s">Inscrivez-vouss maintenant</a>
+            </div>
+          </div>
+        </div>
+        <div class="block col-lg-6">
+          <div class="hero-image">
+            <!-- <img src="assets/img/Etudiants.png" style="border-radius: 100px;" width="400px" height="300px" alt="" class="text-center wow fadeInRight" data-wow-delay=".2s"> -->
+
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="hero-image">
-          <img src="assets/img/Etudiants.png" style="border-radius: 100px;" width="400px" height="300px" alt="" class="text-center wow fadeInRight" data-wow-delay=".2s">
 
-        </div>
-      </div>
+
+
     </div>
-
-
-
   </div>
-</div>
-<!-- ========================= hero-2 end ========================= -->
+  <!-- ========================= hero-2 end ========================= -->
 
 </section>
 
@@ -41,15 +42,18 @@
         <div class="section-title text-center mb-60">
           <h4 class="wow fadeInUp" data-wow-delay=".4s">{{session.nom}}</h4>
           <div>&nbsp;</div>
-          <h5 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Candidature déjà enregistrée pour cette session d'examen au nom de {{candidature.compte.name }} {{candidature.compte.prenom }}</h5>
+          <h5 class="mb-15 wow fadeInUp" data-wow-delay=".2s" style="color: #c0262d;">Candidature déjà enregistrée pour
+            cette session d'examen au nom de {{candidature.compte.name }} {{candidature.compte.prenom }}</h5>
 
         </div>
       </div>
 
       <div class="col-12">
 
-        <h6 class="text-center">Date d'examen:  <b style="color: #df650d">{{session.date_examen | date: "dd/MM/yyyy"}}</b></h6><br/>
-        <h6 class="text-center">Date limite des inscriptions au concours  <b style="color: #df650d">{{session.date_limite | date:"dd/MM/yyyy"}}</b></h6>
+        <h6 class="text-center">Date d'examen: <b style="color: #df650d">{{session.date_examen | date:
+            "dd/MM/yyyy"}}</b></h6><br />
+        <h6 class="text-center">Date limite des inscriptions au concours <b style="color: #df650d">{{session.date_limite
+            | date:"dd/MM/yyyy"}}</b></h6>
         <br>
 
       </div>

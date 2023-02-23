@@ -1,0 +1,22 @@
+#home {
+    
+}
+
+.hero-section .row {
+    --bs-gutter-x: 0;
+}
+
+.hero-section .row .block:first-child{
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.hero-section  .row .block .hero-image {
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+    background: url('/assets/img/Etudiants.png') no-repeat center/cover;
+}
