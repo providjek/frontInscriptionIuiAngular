@@ -134,35 +134,20 @@
               <p class="text-center mb-4">Informations relatives aux parents</p>
               <div class="col-md-12">
                 <div class="single-input">
-                  <label for="tel_pere">Numéro de téléphone du père</label>
-                  <input [(ngModel)]="candidatureForm.tel_pere" style="width: 100%;" type="text" id="tel_pere"
-                    name="tel_pere" class="form-input" placeholder="Numéro de téléphone du pere">
+                  <label for="tel_pere">Numéro de téléphone parents</label>
+                  <input [(ngModel)]="candidatureForm.tel_parents" style="width: 100%;" type="text" id="tel_pere"
+                    name="tel_pere" class="form-input" placeholder="Numéro de téléphone des parents">
                 </div>
               </div>
 
               <div class="col-md-12">
                 <div class="single-input">
-                  <label for="tel_mere">Numéro de téléphone de la mère</label>
-                  <input [(ngModel)]="candidatureForm.tel_mere" style="width: 100%;" type="text" id="tel_mere"
-                    name="tel_mere" class="form-input" placeholder="Numéro de téléphone lla mere">
+                  <label for="email_pere">Email parents</label>
+                  <input required [(ngModel)]="candidatureForm.email_parents" style="width: 100%;" type="email"
+                    id="email_parents" name="email_parents" class="form-input" placeholder="Email des parents">
                 </div>
               </div>
 
-              <div class="col-md-12">
-                <div class="single-input">
-                  <label for="email_pere">Email du pere</label>
-                  <input required [(ngModel)]="candidatureForm.email_pere" style="width: 100%;" type="email"
-                    id="email_pere" name="email_pere" class="form-input" placeholder="Email du pere">
-                </div>
-              </div>
-
-              <div class="col-md-12">
-                <div class="single-input">
-                  <label for="email_mere">Email de la mere</label>
-                  <input required [(ngModel)]="candidatureForm.email_mere" style="width: 100%;" type="email"
-                    id="email_mere" name="email_mere" class="form-input" placeholder="Email de la mere">
-                </div>
-              </div>
 
               <div class="row">
                 <div class="col-md-6">
@@ -172,9 +157,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-button">
-                    <button type="button" class="button radius-10 w-100" [disabled]="candidatureForm.email_mere === '' || candidatureForm.tel_pere === ''
-                    || candidatureForm.email_pere === '' || candidatureForm.tel_mere === ''"
-                      (click)="setStep(step+1)">Suivant</button>
+                    <button type="button" class="button radius-10 w-100" [disabled]="candidatureForm.email_parents === ''
+                     || candidatureForm.tel_parents === ''" (click)="setStep(step+1)">Suivant</button>
                   </div>
                 </div>
               </div>
