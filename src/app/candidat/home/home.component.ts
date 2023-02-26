@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   public compteID : string | null = "";
   public showSession: boolean = false;
-  public showLien: boolean = true;
+  public showLien: boolean = false;
 
   constructor(
     private sessionService :SessionService,
@@ -63,6 +63,14 @@ export class HomeComponent implements OnInit {
                     this.showLien = false;
                   }
                 }
+              }
+              else{
+                this.showSession = false;
+                this.showLien = true;
+              }
+              if (this.showSession === false && this.showLien === false){
+                this.showSession = false;
+                this.showLien = true;
               }
 
             },

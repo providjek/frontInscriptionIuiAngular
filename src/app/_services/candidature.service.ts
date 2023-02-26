@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {TokenService} from "./token.service";
 import {UsersService} from "./users.service";
 import {ICandidatureResponse} from "../_interfaces/icandidature-response";
+import { ICodeValidatorModels } from '../_interfaces/icode-validator-models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class CandidatureService {
   urlhasCandidature:string = 'http://51.178.136.105:9090/candidature/';
   //urlhasCandidature:string = 'http://localhost:9090/candidature/';
   idCcompte : string = "";
+  //urlCodeTest : string = 'http://localhost:9090/candidature/all-codes';
+  urlCodeTest : string = 'http://51.178.136.105:9090/candidature/all-codes';
 
   constructor(
     private  http : HttpClient,
@@ -25,6 +28,10 @@ export class CandidatureService {
 
   addCandidature(candidature : ICandidature) : Observable<ICandidature>{
     return this.http.post<ICandidature>(this.url, candidature);
+  }
+
+  allCodes(): Observable<ICodeValidatorModels>{
+    return  this.http.get<ICodeValidatorModels>(this.urlCodeTest);
   }
 
   hasCandidature(compteID: string ): Observable<ICandidatureResponse[]>{

@@ -28,7 +28,7 @@
       <div *ngFor="let item of site"  class="col-lg-4 col-md-8 col-sm-10">
         <div class="single-pricing wow fadeInUp"  style="height: 600px" data-wow-delay=".2s">
           <div class="image">
-            <img src="assets/img/Cameroun.png" alt="">
+            <img src="{{item.image}}" alt="">
           </div>
           <!--<h6>Pro Design</h6>-->
           <h4>{{item.nom}}</h4>
@@ -70,63 +70,49 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="date_naissance">Date de naissance</label>
+                      <label for="date_naissance">Date de naissance(*)</label>
                       <input [(ngModel)]="candidatureForm.date_naissance" #date_naissance="ngModel"  style="width: 100%;" type="date" id="date_naissance" name="date_naissance" class="form-input" placeholder="Date de naissance">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="nationalite">Nationalité</label>
+                      <label for="nationalite">Nationalité(*)</label>
                       <input [(ngModel)]="candidatureForm.nationalite" #nationalite="ngModel"   style="width: 100%;" type="text" id="nationalite" name="nationalite" class="form-input" placeholder="Nationalité">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="ville">Ville de résidence</label>
+                      <label for="ville">Ville de résidence(*)</label>
                       <input  [(ngModel)]="candidatureForm.ville" style="width: 100%;" type="text" id="ville" name="ville" class="form-input" placeholder="Ville de résidence">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="ville">Lieu de naissances</label>
+                      <label for="ville">Lieu de naissances(*)</label>
                       <input #lieu_naissance  [(ngModel)]="candidatureForm.lieu_de_naissance" style="width: 100%;" type="text" id="lieu_naissance" name="lieu_naissance" class="form-input" placeholder="Lieu de naissance">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="tel_pere">Numéro de téléphone du père</label>
-                      <input [(ngModel)]="candidatureForm.tel_pere" style="width: 100%;" type="text" id="tel_pere" name="tel_pere" class="form-input" placeholder="Numéro de téléphone du pere">
+                      <label for="tel_pere">Numéro(s) de téléphone des parents(*) <br> Veillez renseigner un numéro(6XX-XXX-XXX) ou plusieurs numéros (6XX-XXX-XXX/6XX-XXX-XXX) des parents </label>
+                      <input [(ngModel)]="candidatureForm.tel_parents" style="width: 100%;" type="text" id="tel_pere" name="tel_pere" class="form-input" placeholder="Numéro de téléphone du pere">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="tel_mere">Numéro de téléphone de la mère</label>
-                      <input [(ngModel)]="candidatureForm.tel_mere" style="width: 100%;" type="text" id="tel_mere" name="tel_mere" class="form-input" placeholder="Numéro de téléphone lla mere">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="single-input">
-                      <label for="email_pere">Email du pere</label>
-                      <input required [(ngModel)]="candidatureForm.email_pere" style="width: 100%;" type="email" id="email_pere" name="email_pere" class="form-input" placeholder="Email du pere">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="single-input">
-                      <label for="email_mere">Email de la mere</label>
-                      <input required [(ngModel)]="candidatureForm.email_mere" style="width: 100%;" type="email" id="email_mere" name="email_mere" class="form-input" placeholder="Email de la mere">
+                      <label for="email_pere">Email des parents (*)</label>
+                      <input required [(ngModel)]="candidatureForm.email_parents" style="width: 100%;" type="email" id="email_pere" name="email_pere" class="form-input" placeholder="Email du pere">
                     </div>
                   </div>
 
                   <div class="align-content-center">
                     <div class="single-input">
-                      <label >Genre</label>
+                      <label >Genre (*)</label>
                       <input [(ngModel)]="candidatureForm.genre" value="M" required name="genre" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Masculin </span> <br>
                       <input [(ngModel)]="candidatureForm.genre" value="F"  required  name="genre" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Féminin </span>
                     </div>
@@ -134,7 +120,7 @@
 
                   <div class="align-content-center">
                     <div class="single-input">
-                      <label >Langue parlée</label>
+                      <label >Langue parlée (*)</label>
                       <input  required value="Francais" [(ngModel)]="candidatureForm.langue" name="langue" id="langue" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Français </span> <br>
                       <input required value="Anglais" [(ngModel)]="candidatureForm.langue" name="langue" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Anglais </span>
                     </div>
@@ -142,7 +128,7 @@
 
                   <div class="col-md-12">
                     <div class="single-input">
-                      <label for="dernier_Etablissement">Dernier établissement fréquenté</label>
+                      <label for="dernier_Etablissement">Dernier établissement fréquenté (*)</label>
                       <input required [(ngModel)]="candidatureForm.dernier_Etablissement" style="width: 100%;" type="text" id="dernier_Etablissement" name="dernier_Etablissement" class="form-input" placeholder="Dernier établissement fréquenté">
                     </div>
                   </div>
@@ -154,7 +140,7 @@
 
                     <div class="single-input">
 
-                      <label >Indiquez le nombre de formations auquel vous candidatez</label>
+                      <label >Indiquez le nombre de formations auquel vous candidatez (*)</label>
 
                       <div class="align-content-center">
                         <input  required [(ngModel)]="candidatureForm.nombre_choix" value="1" name="paiement" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Concourir pour une formation(20 000 FCFA) </span>
@@ -168,7 +154,7 @@
                         <input name="paiement"  [(ngModel)]="candidatureForm.nombre_choix"  value="3" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> Concourir pour trois formations(30 000 FCFA) </span>
                       </div>
 
-                      <label >Choix des formations</label>
+                      <label >Choix des formations (*)</label>
                       <p>Le concours permet d'accéder à 3 formations</p>
 
                       <div>&nbsp;</div>
@@ -186,7 +172,7 @@
                       </div>
 
 
-                      <label >Concourir pour</label>
+                      <label >Concourir pour (*)</label>
                       <div class="align-content-center">
                         <input  required [(ngModel)]="candidatureForm.cycle" value="premier" name="cycle" id="cycle" style="width: 20px; height: 20px;" type="radio" class="form-input"> &nbsp; <span style="font-size: 17px;"> 1er cycle </span>
                       </div>
@@ -198,21 +184,20 @@
                       &nbsp;
                       <div class="col-md-12">
                         <div class="single-input">
-                          <label for="email_mere"> <p> Attention ! Pour valider votre candidature vous
-                            devez verser le montant d'inscription que vous avez choisi
-                            ci-dessus par AIRTEL au CONGO, (utilisez le code *128*28*25#)
-                            et par ORANGE au Cameroun (utilisez le code #150*47# ensuite entrer
-                            le code 381721) . Après votre paiement, l'opérateur va vous renvoyer
-                            automatiquement et immédiatement un numéro d'identification de votre
-                            transaction qu'il faut noter dans le cadre ci dessous.</p>
+                          <label >  <p> {{msgPaiement}} </p>
                           </label>
-                          <input required [(ngModel)]="candidatureForm.reference_paiement" style="width: 100%;" type="text" id="reference_paiement" name="reference_paiement" class="form-input" placeholder=" Exemple :MP220315.13.49.A18995 ">
+
+                          <div *ngIf="codeExists" style="color: red; font-weight: bolder" >Le code {{ candidatureForm.reference_paiement }} n'est pas valide !!! Il a déjà été utilisé ou est incorrest ! Veillez réessayez</div>
+                          <div *ngIf="codeValid" style="color: green; font-weight: bolder" >Le code {{ candidatureForm.reference_paiement }}  est valide </div>
+                          <input required [(ngModel)]="candidatureForm.reference_paiement" (ngModelChange)="checkCode()"  style="width: 100%;" type="text" id="reference_paiement" name="reference_paiement" class="form-input" placeholder=" Exemple :MP220315.13.49.A18995 ">
+
+
                         </div>
                       </div>
 
-                      <div class="col-md-12">
+                      <div *ngIf="showNumberPaiement" class="col-md-12">
                         <div class="single-input">
-                          <label for="email_mere">Numéro de téléphone ayant éffectué la transaction</label>
+                          <label >Numéro de téléphone ayant éffectué la transaction</label>
                           <input required [(ngModel)]="candidatureForm.telephone_paiement" style="width: 100%;" type="text" id="telephone_paiement" name="reference_paiement" class="form-input" placeholder=" Exemple : 6 9XX XXX XXX ">
                         </div>
                       </div>
@@ -222,7 +207,7 @@
 
                       &nbsp;
 
-                      <label for="image">Photo</label>
+                      <label for="image">Photo (*)</label>
                       <div class="align-content-center">
                         <input    [(ngModel)]="candidatureForm.image"   type="file" id="image" name="image"> &nbsp;
                       </div>&nbsp;
@@ -232,7 +217,7 @@
 
                   <div class="col-md-12">
                     <div class="form-button">
-                      <button type="submit" class="button radius-10">Valider et procéder au paiement </button>
+                      <button type="submit" class="button radius-10">Valider </button>
                     </div>
                   </div>
                 </div>
