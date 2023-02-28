@@ -14,7 +14,6 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./inscription-form1.component.css']
 })
 export class InscriptionForm1Component implements OnInit {
-
   public site: any;
   public centreBySite: any;
   public step: number = 1;
@@ -66,12 +65,9 @@ export class InscriptionForm1Component implements OnInit {
     private siteService: SitesService,
     private candidatureService: CandidatureService,
     private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private http: HttpClient
   ) { }
-
-  setStep(step: number) {
-    this.step = step;
-  }
 
   ngOnInit(): void {
     this.sessionService.getActiveSession().subscribe(
@@ -102,6 +98,10 @@ export class InscriptionForm1Component implements OnInit {
       }
     );
 
+  }
+
+  setStep(step: number) {
+    this.step = step;
   }
 
   toggleForm(): void {
@@ -219,20 +219,16 @@ export class InscriptionForm1Component implements OnInit {
     }
 
     console.log(this.candidatureForm);
-    /*
-        this.candidatureService.addCandidature(this.candidatureForm).subscribe(
-          data => {
-            console.log(data);
-            localStorage.setItem('haveCandidature', 'true');
-            this.router.navigate(['/candidat/home']);
-          },
-          error => {
-            console.log(error);
-    
-          }
-        );
-    */
-
+    this.candidatureService.addCandidature(this.candidatureForm).subscribe({
+      next: (data) => {
+        console.log(data);
+        localStorage.setItem('haveCandidature', 'true');
+        this.router.navigate(['/candidat/home']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
     return true;
   }
 }
