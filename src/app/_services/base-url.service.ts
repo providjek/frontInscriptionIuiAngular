@@ -12,8 +12,8 @@ export class BaseUrlService {
 
     this.origin =
       // 'http://' + window.location.hostname + ':' + environment.port + '/';
-      'http://' + window.location.hostname;
-    //'http://51.178.136.105';
+      // 'http://' + window.location.hostname;
+      'http://51.178.136.105';
   }
 
   getOrigin() {

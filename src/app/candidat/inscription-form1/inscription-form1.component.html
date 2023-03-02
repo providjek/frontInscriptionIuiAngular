@@ -266,10 +266,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-button">
-                    <button type="button" class="button radius-10 w-100"
-                      [disabled]="candidatureForm.langue === '' || candidatureForm.dernier_Etablissement === ''
-                    || candidatureForm.cycle === '' || candidatureForm.telephone_paiement === '' || candidatureForm.reference_paiement === ''"
-                      (click)="setStep(step+1)">Suivant</button>
+                    <button type="button" class="button radius-10 w-100" [disabled]="candidatureForm.langue === '' || candidatureForm.dernier_Etablissement === '' || candidatureForm.nombre_choix === 0
+                    || candidatureForm.cycle === ''" (click)="setStep(step+1)">Suivant</button>
                   </div>
                 </div>
               </div>
@@ -311,7 +309,8 @@
               </div>
               <div class="col-md-6">
                 <div class="form-button">
-                  <button type="submit" class="button radius-10 w-100">Valider</button>
+                  <button type="submit" class="button radius-10 w-100"
+                    [disabled]=" candidatureForm.telephone_paiement === '' || candidatureForm.reference_paiement === ''">Valider</button>
                 </div>
               </div>
             </div>
