@@ -52,14 +52,15 @@ export class HomeComponent implements OnInit {
         data => {
           this.candidatureService.hasCandidature(String(data.id)).subscribe(
             data2=>{
-              console.log(data2.length);
+              //console.log(data2.length);
 
               if(data2.length > 0){
                 for (let iCandidatureRespons of data2) {
                   if (iCandidatureRespons.candidatureActif === true) {
-                    console.log(iCandidatureRespons);
+                    //console.log(iCandidatureRespons);
                     this.candidature = iCandidatureRespons;
                     this.showSession = true;
+                    localStorage.setItem('haveCandidature', 'true');
                     this.showLien = false;
                   }
                 }

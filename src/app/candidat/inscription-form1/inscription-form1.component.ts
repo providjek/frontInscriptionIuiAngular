@@ -72,7 +72,6 @@ export class InscriptionForm1Component implements OnInit {
   ngOnInit(): void {
     this.sessionService.getActiveSession().subscribe(
       data => {
-        console.log(data);
         this.session = data;
       },
       error => console.log(error)
@@ -80,7 +79,6 @@ export class InscriptionForm1Component implements OnInit {
     this.siteService.getAllSite().subscribe(
       data => {
         this.site = data;
-        console.log(this.site);
       },
       error => console.log(error)
     );
@@ -94,7 +92,7 @@ export class InscriptionForm1Component implements OnInit {
 
       },
       error => {
-        console.log(error);
+        //console.log(error);
       }
     );
 
@@ -106,7 +104,6 @@ export class InscriptionForm1Component implements OnInit {
 
   toggleForm(): void {
     this.showForm = !this.showForm;
-    console.log("Doualla");
     for (let i = 0; i < this.centreBySite.length; i++) {
       if (this.candidatureForm.centre === this.centreBySite[i].nom) {
         this.msgPaiement = "Attention ! Pour valider votre candidature vous devez verser" +
@@ -124,7 +121,7 @@ export class InscriptionForm1Component implements OnInit {
       this.showNumberPaiement = false;
     }
 
-    console.log(this.candidatureForm);
+    //console.log(this.candidatureForm);
     this.showCentre = !this.showForm;
   }
 
@@ -141,7 +138,6 @@ export class InscriptionForm1Component implements OnInit {
           if (this.exitscode.includes(this.candidatureForm.reference_paiement) === true) {
             this.codeExists = true;
             this.codeValid = false;
-            console.log("############OM###################");
           } else {
             this.codeExists = false;
             this.codeValid = false;
@@ -150,11 +146,9 @@ export class InscriptionForm1Component implements OnInit {
           if (this.exitscode.includes(this.candidatureForm.reference_paiement) === true) {
             this.codeExists = true;
             this.codeValid = false;
-            console.log("############OM###################");
           } else if (this.exitscode.includes(this.candidatureForm.reference_paiement) === false && this.allcodes.includes(this.candidatureForm.reference_paiement) === false) {
             this.codeExists = true;
             this.codeValid = false;
-            console.log("############GABFON###################")
           } else {
             this.codeExists = false;
             this.codeValid = true;
@@ -202,7 +196,7 @@ export class InscriptionForm1Component implements OnInit {
       this.candidatureForm.formation2 = "X";
       this.candidatureForm.formation3 = "";
     }
-    console.log(this.candidatureForm.nombre_choix);
+    //console.log(this.candidatureForm.nombre_choix);
     switch (this.candidatureForm.nombre_choix) {
       case 1:
         this.candidatureForm.paiement = "20 000";
@@ -221,12 +215,12 @@ export class InscriptionForm1Component implements OnInit {
     console.log(this.candidatureForm);
     this.candidatureService.addCandidature(this.candidatureForm).subscribe({
       next: (data) => {
-        console.log(data);
+        //console.log(data);
         localStorage.setItem('haveCandidature', 'true');
         this.router.navigate(['/candidat/home']);
       },
       error: (err) => {
-        console.log(err);
+        //console.log(err);
       }
     })
     return true;

@@ -310,7 +310,7 @@
               <div class="col-md-6">
                 <div class="form-button">
                   <button type="submit" class="button radius-10 w-100"
-                    [disabled]=" candidatureForm.telephone_paiement === '' || candidatureForm.reference_paiement === ''">Valider</button>
+                    [disabled]=" (candidatureForm.telephone_paiement === '' && showNumberPaiement ) || candidatureForm.reference_paiement === '' || codeExists ">Valider</button>
                 </div>
               </div>
             </div>
