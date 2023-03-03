@@ -282,7 +282,7 @@
                   </label>
 
                   <div *ngIf="codeExists" style="color: red; font-weight: bolder">Le code {{
-                    candidatureForm.reference_paiement }} n'est pas valide !!! Il a déjà été utilisé ou est incorrest !
+                    candidatureForm.reference_paiement }} n'est pas valide !!! Il a déjà été utilisé ou est incorrect !
                     Veillez réessayez</div>
                   <div *ngIf="codeValid" style="color: green; font-weight: bolder">Le code {{
                     candidatureForm.reference_paiement }} est valide </div>
@@ -310,7 +310,7 @@
               <div class="col-md-6">
                 <div class="form-button">
                   <button type="submit" class="button radius-10 w-100"
-                    [disabled]=" candidatureForm.telephone_paiement === '' || candidatureForm.reference_paiement === ''">Valider</button>
+                    [disabled]=" (candidatureForm.telephone_paiement === '' && showNumberPaiement ) || candidatureForm.reference_paiement === '' || codeExists ">Valider</button>
                 </div>
               </div>
             </div>
