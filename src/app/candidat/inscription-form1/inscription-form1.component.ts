@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {SitesService} from "../../_services/sites.service";
-import {ISite} from "../../_interfaces/site";
-import {ICandidature} from "../../_interfaces/icandidature";
-import {CandidatureService} from "../../_services/candidature.service";
-import {Route, Router} from "@angular/router";
-import {SessionService} from "../../_services/session.service";
+import { SitesService } from "../../_services/sites.service";
+import { ISite } from "../../_interfaces/site";
+import { ICandidature } from "../../_interfaces/icandidature";
+import { CandidatureService } from "../../_services/candidature.service";
+import { Route, Router } from "@angular/router";
+import { SessionService } from "../../_services/session.service";
 import { ISessionModel } from 'src/app/_interfaces/isession-model';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-inscription-form1',
@@ -14,18 +14,18 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./inscription-form1.component.css']
 })
 export class InscriptionForm1Component implements OnInit {
-
-  public site :any;
-  public  centreBySite :any;
+  public site: any;
+  public centreBySite: any;
+  public step: number = 1;
   public showForm: boolean = false;
-  public showCentre : boolean = true;
-  public  candidatureForm: ICandidature={
+  public showCentre: boolean = true;
+  public candidatureForm: ICandidature = {
     langue: "",
     email_parents: "",
     statut: "Echec",
     code_examen: 0,
     cycle: "",
-    compteID:Number(localStorage.getItem('idCandidat')),
+    compteID: Number(localStorage.getItem('idCandidat')),
     nationalite: "",
     genre: "",
     tel_parents: "",
@@ -39,12 +39,12 @@ export class InscriptionForm1Component implements OnInit {
     telephone_paiement: "",
     dernier_Etablissement: "",
     lieu_de_naissance: "",
-    ville : "",
-    nombre_choix :0,
-    centre : "",
-    candidatureActif : true
+    ville: "",
+    nombre_choix: 0,
+    centre: "",
+    candidatureActif: true
   };
-  public session : ISessionModel = {
+  public session: ISessionModel = {
     id: 0,
     nom: "",
     date_debut: new Date(),
@@ -54,7 +54,7 @@ export class InscriptionForm1Component implements OnInit {
   };
   public listCentre: any;
   public msgPaiement: string = "";
-  public  showNumberPaiement : boolean =  false;
+  public showNumberPaiement: boolean = false;
   public allcodes: any;
   public codeExists: boolean = false;
   public exitscode: any;
@@ -62,17 +62,16 @@ export class InscriptionForm1Component implements OnInit {
 
 
   constructor(
-    private siteService :SitesService,
-    private candidatureService : CandidatureService,
-    private router : Router,
-    private sessionService : SessionService,
-    private  http: HttpClient
+    private siteService: SitesService,
+    private candidatureService: CandidatureService,
+    private router: Router,
+    private sessionService: SessionService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
     this.sessionService.getActiveSession().subscribe(
-      data =>{
-        console.log(data);
+      data => {
         this.session = data;
       },
       error => console.log(error)
@@ -80,13 +79,12 @@ export class InscriptionForm1Component implements OnInit {
     this.siteService.getAllSite().subscribe(
       data => {
         this.site = data;
-        console.log(this.site);
       },
       error => console.log(error)
     );
 
     this.siteService.getCenterBySite(1).subscribe(
-      data =>{
+      data => {
         this.centreBySite = data
         for (let i = 0; i < data.length; i++) {
           this.listCentre[i] = data.nom;
@@ -94,111 +92,111 @@ export class InscriptionForm1Component implements OnInit {
 
       },
       error => {
-        console.log(error);
+        //console.log(error);
       }
     );
 
   }
 
-  toggleForm():void{
-    this.showForm = !this.showForm;
-      console.log("Doualla");
-      for (let i = 0; i < this.centreBySite.length; i++) {
-        if(this.candidatureForm.centre === this.centreBySite[i].nom){
-          this.msgPaiement = "Attention ! Pour valider votre candidature vous devez verser" +
-            " le montant correspondant au nombre de formation que" +
-            " vous avez choisi ci-dessus, par ORANGE MONEY " +
-            "(utilisez le code #150*47# ensuite entrer le code 381721) . " +
-            "Après votre paiement, l'opérateur va vous renvoyer automatiquement et" +
-            " immédiatement un numéro d'identification de votre transaction qu'il faut noter dans le cadre ci dessous.";
-          this.showNumberPaiement = true;
-        }
-      }
-      if(this.msgPaiement ===""){
-        this.msgPaiement = "Entrer le numero du réçu de versement des frais de concours,  effectué dans votre centre d'examen ! "+
-          "Attention!!! Votre inscription ne sera valide que lorsque ce numéro sera confirmé !"
-        this.showNumberPaiement = false;
-      }
+  setStep(step: number) {
+    this.step = step;
+  }
 
-    console.log(this.candidatureForm);
-    this.showCentre =!this.showForm;
+  toggleForm(): void {
+    this.showForm = !this.showForm;
+    for (let i = 0; i < this.centreBySite.length; i++) {
+      if (this.candidatureForm.centre === this.centreBySite[i].nom) {
+        this.msgPaiement = "Attention ! Pour valider votre candidature vous devez verser" +
+          " le montant correspondant au nombre de formation que" +
+          " vous avez choisi ci-dessus, par ORANGE MONEY " +
+          "(utilisez le code #150*47# ensuite entrer le code 381721) . " +
+          "Après votre paiement, l'opérateur va vous renvoyer automatiquement et" +
+          " immédiatement un numéro d'identification de votre transaction qu'il faut noter dans le cadre ci dessous.";
+        this.showNumberPaiement = true;
+      }
+    }
+    if (this.msgPaiement === "") {
+      this.msgPaiement = "Entrer le numero du réçu de versement des frais de concours,  effectué dans votre centre d'examen ! " +
+        "Attention!!! Votre inscription ne sera valide que lorsque ce numéro sera confirmé !"
+      this.showNumberPaiement = false;
+    }
+
+    //console.log(this.candidatureForm);
+    this.showCentre = !this.showForm;
   }
 
   checkCode() {
     this.candidatureService.allCodes().subscribe(
       (response) => {
-      //console.log(response.allCode);
+        //console.log(response.allCode);
 
-      this.allcodes = response.allCode;
-      this.exitscode = response.existCode;
+        this.allcodes = response.allCode;
+        this.exitscode = response.existCode;
 
 
-      if(this.showNumberPaiement){
-        if (this.exitscode.includes(this.candidatureForm.reference_paiement)===true  ){
-          this.codeExists = true;
-          this.codeValid = false;
-          console.log("############OM###################");
-        }else{
-          this.codeExists = false;
-          this.codeValid =false;
+        if (this.showNumberPaiement) {
+          if (this.exitscode.includes(this.candidatureForm.reference_paiement) === true) {
+            this.codeExists = true;
+            this.codeValid = false;
+          } else {
+            this.codeExists = false;
+            this.codeValid = false;
+          }
+        } else {
+          if (this.exitscode.includes(this.candidatureForm.reference_paiement) === true) {
+            this.codeExists = true;
+            this.codeValid = false;
+          } else if (this.exitscode.includes(this.candidatureForm.reference_paiement) === false && this.allcodes.includes(this.candidatureForm.reference_paiement) === false) {
+            this.codeExists = true;
+            this.codeValid = false;
+          } else {
+            this.codeExists = false;
+            this.codeValid = true;
+          }
         }
-      }else{
-      if (this.exitscode.includes(this.candidatureForm.reference_paiement)===true  ){
-        this.codeExists = true;
-        this.codeValid = false;
-        console.log("############OM###################");
-      }else if(this.exitscode.includes(this.candidatureForm.reference_paiement)===false && this.allcodes.includes(this.candidatureForm.reference_paiement) ===false){
-          this.codeExists = true;
-        this.codeValid = false;
-        console.log("############GABFON###################")
-      }else{
-        this.codeExists = false;
-        this.codeValid =true;
-      }
-      }
-    });
+      });
   }
   onSubmit() {
-    if(this.candidatureForm.formation1 && !this.candidatureForm.formation2 && !this.candidatureForm.formation3){
+    if (this.candidatureForm.formation1 && !this.candidatureForm.formation2 && !this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "FA";
       this.candidatureForm.formation2 = "";
       this.candidatureForm.formation3 = "";
-    }if(this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3){
+    } if (this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "FA";
       this.candidatureForm.formation2 = "OP";
       this.candidatureForm.formation3 = "";
-    }if(this.candidatureForm.formation1 && !this.candidatureForm.formation2 && this.candidatureForm.formation3){
+    } if (this.candidatureForm.formation1 && !this.candidatureForm.formation2 && this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "FA";
       this.candidatureForm.formation2 = "X";
       this.candidatureForm.formation3 = "";
     }
 
-    if(!this.candidatureForm.formation1 && !this.candidatureForm.formation2 && !this.candidatureForm.formation3){
+    if (!this.candidatureForm.formation1 && !this.candidatureForm.formation2 && !this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "";
       this.candidatureForm.formation2 = "";
       this.candidatureForm.formation3 = "";
-    }if(!this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3){
+    } if (!this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "OP";
       this.candidatureForm.formation2 = "";
       this.candidatureForm.formation3 = "";
-    }if(!this.candidatureForm.formation1 && !this.candidatureForm.formation2 && this.candidatureForm.formation3){
+    } if (!this.candidatureForm.formation1 && !this.candidatureForm.formation2 && this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "X";
       this.candidatureForm.formation2 = "";
       this.candidatureForm.formation3 = "";
     }
 
 
-    if(!this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3){
+    if (!this.candidatureForm.formation1 && this.candidatureForm.formation2 && !this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "";
       this.candidatureForm.formation2 = "";
       this.candidatureForm.formation3 = "";
 
-    }if(!this.candidatureForm.formation1 && this.candidatureForm.formation2 && this.candidatureForm.formation3){
+    } if (!this.candidatureForm.formation1 && this.candidatureForm.formation2 && this.candidatureForm.formation3) {
       this.candidatureForm.formation1 = "OP";
       this.candidatureForm.formation2 = "X";
       this.candidatureForm.formation3 = "";
     }
-    console.log(this.candidatureForm.nombre_choix);
+    //console.log(this.candidatureForm.nombre_choix);
     switch (this.candidatureForm.nombre_choix) {
       case 1:
         this.candidatureForm.paiement = "20 000";
@@ -215,20 +213,16 @@ export class InscriptionForm1Component implements OnInit {
     }
 
     console.log(this.candidatureForm);
-/*
-    this.candidatureService.addCandidature(this.candidatureForm).subscribe(
-      data => {
-        console.log(data);
-          localStorage.setItem('haveCandidature', 'true');
-          this.router.navigate(['/candidat/home']);
+    this.candidatureService.addCandidature(this.candidatureForm).subscribe({
+      next: (data) => {
+        //console.log(data);
+        localStorage.setItem('haveCandidature', 'true');
+        this.router.navigate(['/candidat/home']);
       },
-        error => {
-        console.log(error);
-
+      error: (err) => {
+        //console.log(err);
       }
-    );
-*/
-
+    })
     return true;
   }
 }

@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
     prenom: "",
     password: "",
     email: "",
-    telephone: 0,
     role: "CANDIDAT",
     id_disponibilite: 0
   };
@@ -44,14 +43,14 @@ export class RegisterComponent implements OnInit {
       data => {
         console.log(data);
         console.log("Inscription réussie");
-        this.router.navigate(['/auth/login']);
+        this.login();
       },
       err => {
         console.log(err);
         console.log(err.status);
         if (err.status === 200) {
           console.log("Inscription réussie");
-          this.router.navigate(['/auth/login'])
+          this.login()
         } else {
           this.msgError = "Une erreur s'est produite ! \n Cette adresse mail a été déjà utilisée. \ Veillez vérifier vos informatons, votre connexion internet et réessayez!!!";
           this.showMsgError = true;
@@ -61,6 +60,10 @@ export class RegisterComponent implements OnInit {
       }
     );
 
+  }
+
+  login() {
+    this.router.navigate(['/auth']);
   }
 
 }
