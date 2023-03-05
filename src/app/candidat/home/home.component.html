@@ -13,7 +13,7 @@
 
             <div class="buttons">
               <a [routerLink]="['/candidat/inscription']" rel="nofollow" class="button button-lg radius-10 wow fadeInUp"
-                data-wow-delay=".7s">Inscrivez-vouss maintenant</a>
+                data-wow-delay=".7s">Inscrivez-vous maintenant</a>
             </div>
           </div>
         </div>
@@ -51,9 +51,9 @@
       <div class="col-12">
 
         <h6 class="text-center">Date d'examen: <b style="color: #df650d">{{session.date_examen | date:
-            "dd/MM/yyyy"}}</b></h6><br />
+          'fullDate'}}</b></h6><br />
         <h6 class="text-center">Date limite des inscriptions au concours <b style="color: #df650d">{{session.date_limite
-            | date:"dd/MM/yyyy"}}</b></h6>
+            | date:'fullDate' }}</b></h6>
         <br>
 
       </div>

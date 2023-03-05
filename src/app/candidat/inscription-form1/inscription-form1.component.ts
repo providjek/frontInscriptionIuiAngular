@@ -22,7 +22,7 @@ export class InscriptionForm1Component implements OnInit {
   public candidatureForm: ICandidature = {
     langue: "",
     email_parents: "",
-    statut: "Echec",
+    statut: "En_Attente",
     code_examen: 0,
     cycle: "",
     compteID: Number(localStorage.getItem('idCandidat')),
@@ -116,7 +116,7 @@ export class InscriptionForm1Component implements OnInit {
       }
     }
     if (this.msgPaiement === "") {
-      this.msgPaiement = "Entrer le numero du réçu de versement des frais de concours,  effectué dans votre centre d'examen ! " +
+      this.msgPaiement = "Entrer le code de paiement recu lors du versement des frais de concours,  effectué dans votre centre d'examen ! " +
         "Attention!!! Votre inscription ne sera valide que lorsque ce numéro sera confirmé !"
       this.showNumberPaiement = false;
     }
