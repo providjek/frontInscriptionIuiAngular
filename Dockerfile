@@ -9,4 +9,5 @@ RUN npm run build --prod
 #stage 2
 FROM nginx:alpine
 # FROM nginx:stable-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=node /app/dist/front-end-inscription-iui /usr/share/nginx/html
